@@ -48,16 +48,17 @@ userSchema.virtual("password")
             this._password = password;
             this.salt = uuidv1();
             this.encry_password = this.securePassword(password);
+            return this._password;
           })
           .get(function(){
               return this._password;
           }) 
 
-userSchema.method = {
+userSchema.methods = {
 
-     authenticate:function(rawPassword){
-       return this.securePassword(rawPassword) === this.encry_password;
-     },
+    //  authenticate:function(rawPassword){
+    //    return this.securePassword(rawPassword) === this.encry_password;
+    //  },
 
     securePassword:function(rawPassword){
         if(!rawPassword) return "";
