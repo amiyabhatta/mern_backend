@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const port = 8001;
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 
 
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 app.use("/api",authRoutes);
+app.use("/api",userRoutes);
 
 mongoose.connect('mongodb://localhost:27017/tshirt', 
 {
